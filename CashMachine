@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+void main(void){
+
+    int notas100=0, notas50=0, notas20=0, notas10=0, quantSaque, totalNotas=0, indice;
+
+    if(scanf("%i", &quantSaque) != NULL){
+
+        if(quantSaque <= 0){
+            printf("Erro de valor invalido\n");
+        }else{
+            notas100 = quantSaque / 100;
+            quantSaque = quantSaque % 100;
+            notas50 = quantSaque / 50;
+            quantSaque = quantSaque % 50;
+            notas20 = quantSaque / 20;
+            quantSaque = quantSaque % 20;
+            notas10 = quantSaque / 10;
+            quantSaque = quantSaque % 10;
+
+            totalNotas = notas100 + notas50 + notas20 + notas10;
+
+            if(quantSaque > 0){
+                printf("Erro de notas indisponiveis\n");
+            }else{
+                printf("[");
+                for(indice = 0; indice < notas100; indice++){
+                    if(totalNotas == 1){
+                        printf("100.00");
+                    }else{
+                        printf("100.00, ");
+                        totalNotas--;
+                    }
+                }
+
+                for(indice = 0; indice < notas50; indice++){
+                    if(totalNotas == 1){
+                        printf("50.00");
+                    }else{
+                        printf("50.00, ");
+                        totalNotas--;
+                    }
+                }
+
+                for(indice = 0; indice < notas20; indice++){
+                    if(totalNotas == 1){
+                        printf("20.00");
+                    }else{
+                        printf("20.00, ");
+                        totalNotas--;
+                    }
+                }
+
+
+                for(indice = 0; indice < notas10; indice++){
+                    if(totalNotas == 1){
+                        printf("10.00");
+                    }else{
+                        printf("10.00, ");
+                        totalNotas--;
+                    }
+                }
+                printf("]\n");
+            }
+        }
+
+    }else{
+        printf("Erro de valor nulo\n");
+    }
+}
